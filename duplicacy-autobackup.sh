@@ -34,7 +34,7 @@ do_backup() {
     return
   fi
 
-  duplicacy backup $DUPLICACY_BACKUP_OPTIONS
+  duplicacy backup $DUPLICACY_BACKUP_OPTIONS -t cron-$(date +%F)
 
   if [[ -f $POST_BACKUP_SCRIPT ]]; then
     echo "Running post-backup script"
